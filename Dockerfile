@@ -13,10 +13,9 @@ RUN pip3 install boto azure pghoard
 
 
 COPY pghoard.sh /
-
+COPY PG_VERSION /var/lib/postgresql/data/PG_VERSION
 
 RUN mv /usr/local/bin/pg_receivewal /usr/bin/pg_receivewal
-RUN echo 10 > /var/lib/postgresql/data/PG_VERSION
-RUN ls /var/lib/postgresql/data
+
 
 CMD /pghoard.sh
